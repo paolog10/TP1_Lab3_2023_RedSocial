@@ -42,3 +42,51 @@ header img{
 .espacio{
   height: 10px;
 }
+
+.seccion1{
+  display: flex;
+  justify-content: center;
+}
+
+.caracteristicas{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  width: 900px;
+}
+
+.fotoPerfil{
+  width: 200px;
+  height: 200px;
+  margin-left: 45px;
+}
+
+.perfil{
+  width: 400px;
+  height: 250px;
+}
+
+.fotoPerfil img{
+  width: 100%;
+  height: 100%;
+  border-radius: 150px;
+}
+
+.seguir{
+  margin-left: 10px;
+  margin-top: 150px;
+}
+
+.btnSeguir{
+  background-color: royalblue;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  margin-left: 50px;
+}
+
+
