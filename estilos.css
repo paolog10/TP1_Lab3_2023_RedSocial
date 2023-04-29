@@ -89,4 +89,44 @@ header img{
   margin-left: 50px;
 }
 
+.info{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 
+.info img{
+  height: 300px;
+  width: 300px;
+}
+
+.publicacion{
+  width: 480px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+}
+
+.publicacion p{
+  text-align: left;
+  margin-left: 15px;
+}
+
+.espacioVertical{
+  width: 25px;
+}
+
+.sobreMi{
+  width: 300px;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.sobreMi p{
+  text-align: center;
+}
+
+.sobreMi2{
+  background-color: whitesmoke;
+  border-radius: 15px;
+  padding: 10px;
+}
