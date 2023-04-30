@@ -15,7 +15,9 @@
       <img src="imagenes/undefined - Imgur.png" alt="Imagen logo Red Social">
     </div>
     <div class="cajainputUsuario">
-      <input class="inputUsuario" type="text" id="txtUsuario" placeholder="Ingresa tu usuario...">
+      <form action="">
+        <input class="inputUsuario" type="text" id="txtUsuario" placeholder="Ingresa tu usuario..." required minlength="1">
+      </form>
     </div>
   </header>
 
@@ -51,17 +53,22 @@
           <p>Publicado hace 1 semana</p>
           <img src="imagenes/bq9db41.jpeg" alt="" srcset="">
     
-          <div class="botonLike">
-            <button id="btnLike">Me gusta <span id="contarLike">200</span></button>
+          <div class="meGusta">
+            <div class="botonLike">
+              <form action="">
+                <button id="btnLike" class="btnSeguir">Me gusta</button>
+              </form>
+            </div>
+            <div id="mostrarCantidadLikes" class="cajaCantidadLikes">200</div>  
           </div>
-        
+
           <div>
             <p>Comentarios</p>
             
             <form>
-              <ul id="ulMostrarComentarios"></ul>
-              <textarea id="inputComentario" placeholder="Deja tu comentario"></textarea>
-              <button id="agregarComentario" type="submit">Agregar comentario</button>
+              <p id="ulMostrarComentarios"></p>
+              <input id="inputComentario" class="comentario" placeholder="Deja tu comentario" required></input>
+              <button id="agregarComentario" type="submit" class="btnSeguir">Comentar</button>
             </form>
           </div>
         </div>

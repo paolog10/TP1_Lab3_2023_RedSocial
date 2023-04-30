@@ -1,21 +1,24 @@
 window.onload=Iniciar; //si usamos defer, no colocar esta linea
 
 function Iniciar() {
-  let inputUsuario = document.getElementById("txtUsuario");
-  inputUsuario.addEventListener('input', MostrarNombre); //despues eliminar
+  //let inputUsuario = document.getElementById("txtUsuario");
+  //inputUsuario.addEventListener('input', MostrarNombre); //despues eliminar
 
   let seguirPerfil = document.getElementById('btnSeguir');
   seguirPerfil.addEventListener("click", SeguirPerfil);
 
   let agregarComentarios = document.getElementById('agregarComentario');
   agregarComentarios.addEventListener("click", GenerarComentarios);
-}
 
+  let botonlike = document.getElementById('btnLike');
+  botonlike.addEventListener("click", DarLike);
+}
+/*
 function MostrarNombre(evento) {
   evento.preventDefault(); // Evita que se recargue la página al enviar el formulario
   //alert("funciona") //despues eliminar
 }
-
+*/
 function SeguirPerfil() {
   //evento.preventDefault() // Evita que se recargue la página al enviar el formulario
 
@@ -34,15 +37,11 @@ function SeguirPerfil() {
 function DarLike(evento) {
   evento.preventDefault() // Evita que se recargue la página al enviar el formulario
   
-  let btnLike = document.getElementById('btnLike');
-  btnLike.addEventListener("click", SumarLike);
-  let contarLike = document.getElementById('contarLike');
-  let numerosLike = 200;
+  let likes = document.getElementById('mostrarCantidadLikes');
+  let cantidadLikes = 200;
+  cantidadLikes++;
+  likes.innerHTML = `${cantidadLikes}`;
 
-  function SumarLike() {
-    numerosLike++;
-    contarLike.textContent = numerosLike; //La propiedad textContent para establecer el texto del párrafo
-  }
 };
 
 function GenerarComentarios(evento) {
@@ -52,19 +51,32 @@ function GenerarComentarios(evento) {
   let inputComentario = document.getElementById('inputComentario').value;
   let listaComentarios = document.getElementById('ulMostrarComentarios');
 
+  //validación básica /*/^\s+$/.test(inputUsuario) no haya solamente espacios*/
+  if (inputUsuario === "" || inputUsuario == null || inputUsuario.length == 0  || /^\s+$/.test(inputUsuario) ) {
+    alert("Campo usuario inválido. Verifique");
+    return false; //se retorna false y el formulario no se envía.
+  }
+
+  if (inputComentario === "") {
+    alert("Campo comentario inválido. Verifique");
+    return false; 
+  }
+
+  //Si cumple requisitos, sigue adelante
   //creo elemento 'li'
-  let nuevoComentario = document.createElement("li");
+  let nuevoComentario = document.createElement("p");
 
   //imprimo el comentario
-  var contenido = document.createTextNode(inputUsuario + ': ' + inputComentario);
+  var contenido = document.createTextNode(`${inputUsuario}: ${inputComentario}`);
   
   listaComentarios.appendChild(nuevoComentario);
   nuevoComentario.appendChild(contenido);
 
+  document.getElementById('txtUsuario').value = "";
+  document.getElementById('inputComentario').value = "";
 }
 /*
 TODO
--revisar Me gusta uso textContent
 -revisar Seguir uso textContent
 */
 
