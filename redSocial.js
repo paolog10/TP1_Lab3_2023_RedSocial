@@ -30,7 +30,8 @@ function DarLike(evento) {
   let likes = document.getElementById('mostrarCantidadLikes');
   let cantidadLikes = 200;
   cantidadLikes++;
-  likes.innerHTML = `${cantidadLikes}`;
+  likes.innerHTML = `${cantidadLikes} Likes`;
+  likes.disabled = true; //deshabilito el botón
   return;
 };
 
@@ -51,17 +52,21 @@ function GenerarComentarios(evento) {
     alert("Campo comentario inválido. Verifique");
     return false; 
   }
-
-  //Si cumple requisitos, sigue adelante
-  //creo elemento 'p'
+  
+  let strong = document.createElement("strong");
   let nuevoComentario = document.createElement("p");
-
+  
   //imprimo el comentario
-  var contenido = document.createTextNode(`${inputUsuario}: ${inputComentario}`);
-
-  listaComentarios.appendChild(nuevoComentario);
+  var textoStrong = document.createTextNode(`${inputUsuario} `);
+  var contenido = document.createTextNode(`${inputComentario}`);
+  
+  //appendeo
+  strong.appendChild(textoStrong);
+  nuevoComentario.appendChild(strong);
   nuevoComentario.appendChild(contenido);
+  listaComentarios.appendChild(nuevoComentario);
 
+  //dejo vacío los campos
   document.getElementById('txtUsuario').value = "";
   document.getElementById('inputComentario').value = "";
   return;
