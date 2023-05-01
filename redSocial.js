@@ -1,9 +1,6 @@
 window.onload=Iniciar; //si usamos defer, no colocar esta linea
 
 function Iniciar() {
-  //let inputUsuario = document.getElementById("txtUsuario");
-  //inputUsuario.addEventListener('input', MostrarNombre); //despues eliminar
-
   let seguirPerfil = document.getElementById('btnSeguir');
   seguirPerfil.addEventListener("click", SeguirPerfil);
 
@@ -13,35 +10,28 @@ function Iniciar() {
   let botonlike = document.getElementById('btnLike');
   botonlike.addEventListener("click", DarLike);
 }
-/*
-function MostrarNombre(evento) {
+
+function SeguirPerfil(evento) {
   evento.preventDefault(); // Evita que se recargue la página al enviar el formulario
-  //alert("funciona") //despues eliminar
-}
-*/
-function SeguirPerfil() {
-  //evento.preventDefault() // Evita que se recargue la página al enviar el formulario
 
   let seguirPerfil = document.getElementById('btnSeguir');
-  seguirPerfil.addEventListener("click", Estado)
-  
-  function Estado() {
-    if (seguirPerfil.textContent === 'Seguir') {
-      seguirPerfil.textContent = 'Dejar de seguir'; //La propiedad textContent para establecer el texto del párrafo
-    } else {
-      seguirPerfil.textContent = 'Seguir';
-    }
+  if (seguirPerfil.textContent === 'Seguir') {
+    seguirPerfil.textContent = 'Dejar de seguir'; //La propiedad textContent para establecer el texto del párrafo. representa el contenido de texto del nodo y sus descendientes
+    return;
+  } else {
+    seguirPerfil.textContent = 'Seguir';
+    return;
   }
 }
 
 function DarLike(evento) {
-  evento.preventDefault() // Evita que se recargue la página al enviar el formulario
+  evento.preventDefault(); 
   
   let likes = document.getElementById('mostrarCantidadLikes');
   let cantidadLikes = 200;
   cantidadLikes++;
   likes.innerHTML = `${cantidadLikes}`;
-
+  return;
 };
 
 function GenerarComentarios(evento) {
@@ -57,26 +47,24 @@ function GenerarComentarios(evento) {
     return false; //se retorna false y el formulario no se envía.
   }
 
-  if (inputComentario === "") {
+  if (inputComentario === "" || inputComentario == null || inputComentario.length == 0 || inputComentario > 1500) {
     alert("Campo comentario inválido. Verifique");
     return false; 
   }
 
   //Si cumple requisitos, sigue adelante
-  //creo elemento 'li'
+  //creo elemento 'p'
   let nuevoComentario = document.createElement("p");
 
   //imprimo el comentario
   var contenido = document.createTextNode(`${inputUsuario}: ${inputComentario}`);
-  
+
   listaComentarios.appendChild(nuevoComentario);
   nuevoComentario.appendChild(contenido);
 
   document.getElementById('txtUsuario').value = "";
   document.getElementById('inputComentario').value = "";
+  return;
 }
-/*
-TODO
--revisar Seguir uso textContent
-*/
+
 

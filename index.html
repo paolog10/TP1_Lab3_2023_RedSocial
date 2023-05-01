@@ -40,7 +40,9 @@
         </div>
   
         <div class="seguir">
-          <button id="btnSeguir" class="btnSeguir">Seguir</button>
+          <form action="">
+            <button id="btnSeguir" class="btnSeguir" value="Seguir">Seguir</button>
+          </form>
         </div>
       </div>
     </section>
@@ -67,7 +69,7 @@
             
             <form>
               <p id="ulMostrarComentarios"></p>
-              <input id="inputComentario" class="comentario" placeholder="Deja tu comentario" required></input>
+              <input id="inputComentario" class="comentario" placeholder="Deja tu comentario" required minlength="1" maxlength="1500"></input>
               <button id="agregarComentario" type="submit" class="btnSeguir">Comentar</button>
             </form>
           </div>
