@@ -38,38 +38,44 @@ function DarLike(evento) {
 function GenerarComentarios(evento) {
   evento.preventDefault();
   
+  let fecha = new Date();
   let inputUsuario = document.getElementById('txtUsuario').value;
   let inputComentario = document.getElementById('inputComentario').value;
   let listaComentarios = document.getElementById('ulMostrarComentarios');
+  let divComentario = document.getElementById('divComentario');
+  
+  //validación básica /^\s+$/.test(inputUsuario) no haya solamente espacios
+  if (inputUsuario === "" || inputUsuario == null || inputUsuario.length == 0  || /^\s+$/.test(inputUsuario) || inputComentario === "" || inputComentario == null || inputComentario.length == 0 || inputComentario > 1500) {
+    
+    let fecha = new Date();
+    let mensajeError = document.getElementById("mensajeError");
+    let parrafo = document.createElement("p");
+    parrafo.innerHTML = `-Error!!! Usuario o comentario no válido. Verifique -- ${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`;
 
-  //validación básica /*/^\s+$/.test(inputUsuario) no haya solamente espacios*/
-  if (inputUsuario === "" || inputUsuario == null || inputUsuario.length == 0  || /^\s+$/.test(inputUsuario) ) {
-    alert("Campo usuario inválido. Verifique");
+    //agrego la etiqueta p al elemento con el id "mensajeError"
+    mensajeError.appendChild(parrafo);
     return false; //se retorna false y el formulario no se envía.
-  }
+  }else{
+    //creo etiquetas
+    let strong = document.createElement("strong");
+    let nuevoComentario = document.createElement("p");
+    
+    //agrego texto(variables en este caso a las etiquetas) -- No le hice el botón eliminar, le agregué fecha y hora del comentario
+    var textoStrong = document.createTextNode(`${inputUsuario} `);
+    var contenido = document.createTextNode(`${inputComentario} -- ${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()} - ${fecha.getHours()}:${fecha.getMinutes()}`);
+    
+    //appendeo
+    strong.appendChild(textoStrong);
+    nuevoComentario.appendChild(strong);
+    nuevoComentario.appendChild(contenido);
+    listaComentarios.appendChild(nuevoComentario);
+    divComentario.appendChild(listaComentarios);
 
-  if (inputComentario === "" || inputComentario == null || inputComentario.length == 0 || inputComentario > 1500) {
-    alert("Campo comentario inválido. Verifique");
-    return false; 
+    //dejo vacío los campos
+    document.getElementById('txtUsuario').value = "";
+    document.getElementById('inputComentario').value = "";
+    return;
   }
-  
-  let strong = document.createElement("strong");
-  let nuevoComentario = document.createElement("p");
-  
-  //imprimo el comentario
-  var textoStrong = document.createTextNode(`${inputUsuario} `);
-  var contenido = document.createTextNode(`${inputComentario}`);
-  
-  //appendeo
-  strong.appendChild(textoStrong);
-  nuevoComentario.appendChild(strong);
-  nuevoComentario.appendChild(contenido);
-  listaComentarios.appendChild(nuevoComentario);
-
-  //dejo vacío los campos
-  document.getElementById('txtUsuario').value = "";
-  document.getElementById('inputComentario').value = "";
-  return;
 }
 
 

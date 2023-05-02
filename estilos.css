@@ -100,8 +100,8 @@ header img{
 }
 
 .info img{
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
 }
 
 .publicacion{
@@ -117,7 +117,7 @@ header img{
 
 .meGusta{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly; /*distribuye el espacio entre los elementos de manera uniforme*/
   text-align: left;
 }
 
@@ -127,6 +127,10 @@ header img{
   width: 80px;
   padding: 5px;
   text-align: center;
+}
+
+.ulMostrarComentarios{
+  width: 150px;
 }
 
 .espacioVertical{
@@ -139,21 +143,27 @@ header img{
 }
 
 .sobreMi p{
-  text-align: center;
+  text-align: left;
 }
 
 .sobreMi2{
   background-color: whitesmoke;
   border-radius: 15px;
-  padding: 10px;
+  padding: 15px;
+}
+
+.errorMensaje{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  font-size: 13px;
 }
 
 .comentario {
-  height: 15px;
+  height: 10px;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+  width: 280px;
 }
 
