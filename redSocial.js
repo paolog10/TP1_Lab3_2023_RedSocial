@@ -42,7 +42,6 @@ function GenerarComentarios(evento) {
   let inputUsuario = document.getElementById('txtUsuario').value;
   let inputComentario = document.getElementById('inputComentario').value;
   let listaComentarios = document.getElementById('ulMostrarComentarios');
-  let divComentario = document.getElementById('divComentario');
   
   //validación básica /^\s+$/.test(inputUsuario) no haya solamente espacios
   if (inputUsuario === "" || inputUsuario == null || inputUsuario.length == 0  || /^\s+$/.test(inputUsuario) || inputComentario === "" || inputComentario == null || inputComentario.length == 0 || inputComentario > 1500) {
@@ -69,7 +68,6 @@ function GenerarComentarios(evento) {
     nuevoComentario.appendChild(strong);
     nuevoComentario.appendChild(contenido);
     listaComentarios.appendChild(nuevoComentario);
-    divComentario.appendChild(listaComentarios);
 
     //dejo vacío los campos
     document.getElementById('txtUsuario').value = "";
