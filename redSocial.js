@@ -47,7 +47,8 @@ function GenerarComentarios(evento) {
   if (inputUsuario === "" || inputUsuario == null || inputUsuario.length == 0  || /^\s+$/.test(inputUsuario) || inputComentario === "" || inputComentario == null || inputComentario.length == 0 || inputComentario.length > 1500) {
     
     let fecha = new Date();
-    let mensajeError = document.getElementById("mensajeError");
+    //let mensajeError = document.getElementById("mensajeError");
+    let mensajeError = document.getElementById('ulMostrarComentarios');
     let parrafo = document.createElement("p");
     parrafo.innerHTML = `-Error!!! Usuario o comentario no válido. Verifique -- ${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`;
 
