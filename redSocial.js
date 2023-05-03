@@ -44,7 +44,7 @@ function GenerarComentarios(evento) {
   let listaComentarios = document.getElementById('ulMostrarComentarios');
   
   //validación básica /^\s+$/.test(inputUsuario) no haya solamente espacios
-  if (inputUsuario === "" || inputUsuario == null || inputUsuario.length == 0  || /^\s+$/.test(inputUsuario) || inputComentario === "" || inputComentario == null || inputComentario.length == 0 || inputComentario > 1500) {
+  if (inputUsuario === "" || inputUsuario == null || inputUsuario.length == 0  || /^\s+$/.test(inputUsuario) || inputComentario === "" || inputComentario == null || inputComentario.length == 0 || inputComentario.length > 1500) {
     
     let fecha = new Date();
     let mensajeError = document.getElementById("mensajeError");
